@@ -18,7 +18,7 @@ Petit algorithme qui trouve le chemin le plus court entre deux points (A et B) s
 
 ##### Chemin le plus court entre A et B :
 
-<img src="images/chemin.png">
+<img src="images/path.png">
 
 
 
