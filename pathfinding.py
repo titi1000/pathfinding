@@ -88,23 +88,19 @@ def pathfinding(image, point_a):
   visited[point_a[0], point_a[1]] = 1
 
   for element in liste_principale:
-    liste_adjacent = []
 
     if is_pixel_in_image_or_wall(monde, element[0]-1, element[1]) == True and visited[element[0]-1, element[1]] == 0:
-      liste_adjacent.append((element[0]-1, element[1], element[2]+1))
+      liste_principale.append((element[0]-1, element[1], element[2]+1))
       visited[element[0]-1, element[1]] = 1 
     if is_pixel_in_image_or_wall(monde, element[0]+1, element[1]) == True and visited[element[0]+1, element[1]] == 0:
-      liste_adjacent.append((element[0]+1, element[1], element[2]+1))
+      liste_principale.append((element[0]+1, element[1], element[2]+1))
       visited[element[0]+1, element[1]] = 1 
     if is_pixel_in_image_or_wall(monde, element[0], element[1]+1) == True and visited[element[0], element[1]+1] == 0:
-      liste_adjacent.append((element[0], element[1]+1, element[2]+1))
+      liste_principale.append((element[0], element[1]+1, element[2]+1))
       visited[element[0], element[1]+1] = 1 
     if is_pixel_in_image_or_wall(monde, element[0], element[1]-1) == True and visited[element[0], element[1]-1] == 0:
-      liste_adjacent.append((element[0], element[1]-1, element[2]+1))
+      liste_principale.append((element[0], element[1]-1, element[2]+1))
       visited[element[0], element[1]-1] = 1 
-
-    for new_adjacent in liste_adjacent:
-      liste_principale.append(new_adjacent)
 
   return liste_principale
 
@@ -125,7 +121,7 @@ def trajectoire(image, point_a, point_b):
   longueur = image[point_b[0], point_b[1]]  
   print("Longueur du chemin : {} pixels".format(int(longueur)+1))
   image[point_b[0], point_b[1]] = 255
-  for i in range(int(longueur), 0, -1):
+  for i in range(int(longueur), -1, -1):
     compteur = 0
     for y in range(image.shape[0]):
       for x in range(image.shape[1]):
@@ -133,7 +129,9 @@ def trajectoire(image, point_a, point_b):
           if neighbour_white(image, y, x) == True:
             image[y, x] = 255
             compteur += 1
-  image[point_a[0], point_a[1]] = 255
+  # on change la couleur des ponts de départ et d'arrivée par pur esthétisme 
+  image[point_b[0], point_b[1]] = 180
+  image[point_a[0], point_a[1]] = 180
 
 # tests + affichage (pathfinding)
 debut = time.process_time()

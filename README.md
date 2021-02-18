@@ -2,7 +2,7 @@
 
 ### Description :
 
-Petit algorithme qui trouve le chemin le plus court entre deux points (A et B) sur une map avec des murs. Pour ce projet j'ai utilisé les librairies numpy et matplotlib. Il a été initialement créé sur un notebook .ipynb, puis transféré en fichier .py normal, ce qui le rend un peu moins agréable à lire. 
+Petit algorithme qui trouve le chemin le plus court entre deux points (A et B) sur une map avec des murs. Pour ce projet j'ai utilisé les librairies numpy et matplotlib. Il a été initialement créé sur un notebook .ipynb, puis transféré en fichier .py normal, ce qui le rend un peu moins agréable à lire ici. 
 
 ### Le projet se décompose en trois parties :
 
