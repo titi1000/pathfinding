@@ -80,11 +80,11 @@ def is_pixel_in_image_or_wall(image, cord_y, cord_x):
 
 # fonction distance qui assigne une valeur différente
 # à chaque pixel qui n'est pas un obstacle
-def pathfinding(image, point_a):
+def pathfinding(monde, point_a):
   liste_principale = []
   liste_principale.append((point_a[0], point_a[1], 0))
 
-  visited = np.zeros((image.shape)) # nouvelle image pour savoir quels pixels ont déjà été visités
+  visited = np.zeros((monde.shape)) # nouvelle image pour savoir quels pixels ont déjà été visités
   visited[point_a[0], point_a[1]] = 1
 
   for element in liste_principale:
@@ -129,7 +129,7 @@ def trajectoire(image, point_a, point_b):
           if neighbour_white(image, y, x) == True:
             image[y, x] = 255
             compteur += 1
-  # on change la couleur des ponts de départ et d'arrivée par pur esthétisme 
+  # on change la couleur des points de départ et d'arrivée par pur esthétisme 
   image[point_b[0], point_b[1]] = 180
   image[point_a[0], point_a[1]] = 180
 
