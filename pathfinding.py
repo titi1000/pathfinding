@@ -57,9 +57,11 @@ Il faut maintenant définir un point de départ (le point A) et un point d'arriv
 
 # Point A
 monde[0, 0] = 100
+depart = (0, 0)
 
 # Point B
 monde[18, 2] = 100
+arrivee = (18, 2)
 
 # afficher le monde
 plt.title("Monde avec points")
@@ -135,14 +137,14 @@ def trajectoire(image, point_a, point_b):
 
 # tests + affichage (pathfinding)
 debut = time.process_time()
-liste_principale = pathfinding(monde, (0, 0)) # forme => (y, x) !
+liste_principale = pathfinding(monde, depart) # forme => (y, x) !
 for element in liste_principale:
   monde[element[0], element[1]] = element[2]
 plt.title("Image après pathfinding")
 montrer_image(monde)
 
 # affichage chemin (trajectoire)
-trajectoire(monde, (0, 0), (18, 2))
+trajectoire(monde, depart, arrivee)
 plt.title("Chemin entre A et B :")
 montrer_image(monde)
 
@@ -232,7 +234,7 @@ plt.title("Image après pathfinding avec récurrence :")
 montrer_image(monde2)
 
 # affichage chemin (trajectoire)
-trajectoire(monde2, (0, 0), (18, 2))
+trajectoire(monde2, depart, arrivee)
 plt.title("Chemin entre A et B :")
 montrer_image(monde2)
 
